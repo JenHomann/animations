@@ -43,6 +43,27 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func fadeIn(_ sender: Any) {
+        image.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            self.image.alpha = 1
+        })
+    }
+    
+    @IBAction func slideIn(_ sender: Any) {
+        let currentCenter = image.center
+        image.center = CGPoint(x: currentCenter.x - 500, y: currentCenter.y)
+        UIView.animate(withDuration: 2, animations: {
+            self.image.center = CGPoint(x: currentCenter.x, y: currentCenter.y)
+        })
+    }
+    
+    @IBAction func grow(_ sender: Any) {
+        image.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        UIView.animate(withDuration: 1) {
+            self.image.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
